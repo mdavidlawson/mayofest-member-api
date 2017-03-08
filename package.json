@@ -1,0 +1,22 @@
+{
+  "name": "mayofest-member-api",
+  "version": "1.0.0",
+  "description": "An api to support Membership registration checkin and reporting for Mayofest. Find out more about Mayofest at mayofest.org",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdavidlawson/mayofest-member-api.git"
+  },
+  "author": "M. David Lawson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdavidlawson/mayofest-member-api/issues"
+  },
+  "homepage": "https://github.com/mdavidlawson/mayofest-member-api#readme",
+  "dependencies": {
+    "stripe": "^4.15.0"
+  }
+}

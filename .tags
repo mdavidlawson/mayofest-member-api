@@ -1,0 +1,24 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+author	package.json	/^  "author": "M. David Lawson",$/;"	f
+bugs	package.json	/^  "bugs": {$/;"	f
+dependencies	package.json	/^  "dependencies": {$/;"	f
+description	package.json	/^  "description": "An api to support Membership registration checkin and reporting for Mayofest. Find out more about Mayofest at mayofest.org",$/;"	f
+download_all_the_data	app.js	/^function download_all_the_data(){$/;"	f
+homepage	package.json	/^  "homepage": "https:\/\/github.com\/mdavidlawson\/mayofest-member-api#readme",$/;"	f
+license	package.json	/^  "license": "ISC",$/;"	f
+main	package.json	/^  "main": "app.js",$/;"	f
+name	package.json	/^  "name": "mayofest-member-api",$/;"	f
+repository	package.json	/^  "repository": {$/;"	f
+scripts	package.json	/^  "scripts": {$/;"	f
+stripe	app.js	/^var stripe = require("stripe")($/;"	v
+stripe	package.json	/^    "stripe": "^4.15.0"$/;"	f
+test	package.json	/^    "test": "echo \\"Error: no test specified\\" && exit 1"$/;"	f
+type	package.json	/^    "type": "git",$/;"	f
+url	package.json	/^    "url": "git+https:\/\/github.com\/mdavidlawson\/mayofest-member-api.git"$/;"	f
+url	package.json	/^    "url": "https:\/\/github.com\/mdavidlawson\/mayofest-member-api\/issues"$/;"	f
+version	package.json	/^  "version": "1.0.0",$/;"	f
