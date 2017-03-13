@@ -2,7 +2,7 @@
   "name": "mayofest-member-api",
   "version": "1.0.0",
   "description": "An api to support Membership registration checkin and reporting for Mayofest. Find out more about Mayofest at mayofest.org",
-  "main": "app.js",
+  "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/mdavidlawson/mayofest-member-api#readme",
   "dependencies": {
-    "stripe": "^4.15.0"
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "mariasql": "^0.2.6",
+    "mariasql-promise": "^2.0.0"
   }
 }
