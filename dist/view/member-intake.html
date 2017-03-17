@@ -1,0 +1,28 @@
+<div id="membership-intake">
+<!-- +--------------+------------------+------+-----+---------+----------------+
+| Field        | Type             | Null | Key | Default | Extra          |
++--------------+------------------+------+-----+---------+----------------+
+| id           | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| memberNumber | int(10) unsigned | NO   |     | NULL    |                |
+| name         | varchar(255)     | NO   |     | NULL    |                |
+| email        | varchar(255)     | YES  |     | NULL    |                |
+| address      | varchar(255)     | NO   |     | NULL    |                |
+| note         | text             | YES  |     | NULL    |                |
+| status       | varchar(255)     | YES  |     | NULL    |                |
++--------------+------------------+------+-----+---------+----------------+
+-->
+
+  <div class="input-group">
+    <input id="name-input" type="text" class="form-control" placeholder="Name" aria-label="Your Name">
+  </div>
+  <div class="input-group">
+    <label id="email-label" class="sr-only"> Optionally Enter Your Email </label>
+    <input type="text" class="form-control" placeholder="Email" aria-describedby="email-label">
+    <label id="newsletter-consent" class="sr-only"> Let us know if you'd like to register for our newsletter </label>
+    <input type="text" class="form-control" placeholder="Email" aria-describedby="newsletter-consent">
+  </div>
+  <div class="input-group">
+    <label id="mail-label" class="sr-only"> Your Mailing Address </label>
+    <input type="text" class="form-control" placeholder="Mailing Address" aria-describedby="mail-label">
+  </div>
+</div>
