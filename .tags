@@ -423,7 +423,6 @@ ClassDef	import-utils/import-ss-orders/venv/include/python3.6m/Python-ast.h	/^  
 ClassDef	import-utils/import-ss-orders/venv/include/python3.6m/Python-ast.h	458;"	d
 ClassDef_kind	import-utils/import-ss-orders/venv/include/python3.6m/Python-ast.h	/^enum _stmt_kind {FunctionDef_kind=1, AsyncFunctionDef_kind=2, ClassDef_kind=3,$/;"	e	enum:_stmt_kind
 Client	app/controllers/database-controller.js	/^var Client = require("mariasql");$/;"	v
-Client	app/modules/database-controller.js	/^var Client = require("mariasql");$/;"	v
 ClosedPoolError	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/requests/packages/urllib3/exceptions.py	/^class ClosedPoolError(PoolError):$/;"	c
 CodeType	import-utils/import-ss-orders/venv/lib/python3.6/types.py	/^CodeType = type(_f.__code__)$/;"	v
 Codec	import-utils/import-ss-orders/venv/lib/python3.6/codecs.py	/^class Codec:$/;"	c
@@ -12565,6 +12564,7 @@ prefix_to_dir	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip
 prefixed_name	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/test/pydist-schema.json	/^    "prefixed_name" : {$/;"	f
 prefixes	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/constants.py	/^prefixes = dict([(v, k) for k, v in namespaces.items()])$/;"	v
 prefixlen	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/ipaddress.py	/^    def prefixlen(self):$/;"	m	class:_BaseNetwork
+prepDialog	dist/js/membership-registration.js	/^function prepDialog(){$/;"	f
 prep_for_dist	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/req/req_set.py	/^    def prep_for_dist(self):$/;"	m	class:DistAbstraction
 prep_for_dist	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/req/req_set.py	/^    def prep_for_dist(self):$/;"	m	class:Installed
 prep_for_dist	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/req/req_set.py	/^    def prep_for_dist(self):$/;"	m	class:IsSDist
@@ -13452,7 +13452,6 @@ should_include	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pi
 should_reject	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/retrying.py	/^    def should_reject(self, attempt):$/;"	m	class:Retrying
 should_unzip	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/setuptools/command/easy_install.py	/^    def should_unzip(self, dist):$/;"	m	class:easy_install
 should_wrap	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/colorama/ansitowin32.py	/^    def should_wrap(self):$/;"	m	class:AnsiToWin32
-show_dbs	app/modules/database-controller.js	/^function show_dbs(){$/;"	f
 show_url	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/index.py	/^    def show_url(self):$/;"	m	class:Link
 showtree	import-utils/import-ss-orders/venv/include/python3.6m/pgenheaders.h	36;"	d
 showwarning	import-utils/import-ss-orders/venv/lib/python3.6/warnings.py	/^def showwarning(message, category, filename, lineno, file=None, line=None):$/;"	f
