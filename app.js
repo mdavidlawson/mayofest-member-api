@@ -1,23 +1,36 @@
 var express = require("express");
-var app = express();
 var bodyParser = require("body-parser");
-var db = require("./app/controllers/database-controller.js")
+var db = require("./routes/controllers/database-controller.js");
+var exphbs = require('express-handlebars');
+var fs = require("fs");
 
+var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+app.engine('hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs',
+  partialsDir: "views/partials",
+  layoutsDir: "views/layouts"
+}));
+app.set('view engine', 'hbs');
 var port = process.env.PORT || 8080;
-
 var router = express.Router();
 
-router.get("/members", function(req, res){
+router.get("/member", function(req, res){
   db.get_members(function(result){
     res.json(result);
   });
 });
 
-app.use("/api", router);
+app.get("/member", function(req, res){
+    scripts = [{script: 'js/member-intake.js'}];
+    res.render('home', {scripts: scripts});
+});
 
+app.use("/api", router);
+app.use(express.static('public/'));
 app.listen(port);
 console.log("Magic happens on port: " + port);
 

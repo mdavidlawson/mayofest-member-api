@@ -17,7 +17,8 @@ $.fn.extend({
 });
 
 $(document).ready(function(){
-  $(".checkout-button").prependEvent("click", function(){
+  // TODO this needs to point at the Squarespace button we'd like to control.
+  $("#test-registration-trigger").prependEvent("click", function(){
     console.log("Checkout button clicked");
     onRegistrationButtonClick();
   });

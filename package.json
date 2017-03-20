@@ -19,7 +19,9 @@
   "dependencies": {
     "body-parser": "~1.0.1",
     "express": "~4.0.0",
+    "express-handlebars": "^3.0.0",
     "mariasql": "^0.2.6",
-    "mariasql-promise": "^2.0.0"
+    "mariasql-promise": "^2.0.0",
+    "sales": "0.0.1"
   }
 }
