@@ -1,38 +1,38 @@
 
 <div id="intake-container" class="container">
 	<div class="row">
-		<form id="membership-intake" class="form-horizontal">
 			<fieldset>
-				<!-- +--------------+------------------+------+-----+---------+----------------+
-  | Field        | Type             | Null | Key | Default | Extra          |
-  +--------------+------------------+------+-----+---------+----------------+
-  | id           | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
-  | memberNumber | int(10) unsigned | NO   |     | NULL    |                |
-  | name         | varchar(255)     | NO   |     | NULL    |                |
-  | email        | varchar(255)     | YES  |     | NULL    |                |
-  | address      | varchar(255)     | NO   |     | NULL    |                |
-  | note         | text             | YES  |     | NULL    |                |
-  | status       | varchar(255)     | YES  |     | NULL    |                |
-  +--------------+------------------+------+-----+---------+----------------+
-  -->
+				<!--
+				  +==============+==================+======+=====+=========+================+
+				  | Field        | Type             | Null | Key | Default | Extra          |
+				  +==============+==================+======+=====+=========+================+
+				  | id           | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+				  | memberNumber | int(10) unsigned | NO   |     | NULL    |                |
+				  | name         | varchar(255)     | NO   |     | NULL    |                |
+				  | email        | varchar(255)     | NO   |     | NULL    |                |
+				  | address      | varchar(255)     | NO   |     | NULL    |                |
+				  | note         | text             | YES  |     | NULL    |                |
+				  | status       | varchar(255)     | YES  |     | NULL    |                |
+				  +==============+==================+======+=====+=========+================+
+			  -->
 
 				<div class="control-group">
 					<h3> About You </h3>
 					<label id="name-label" class="control-label"> Your Name</label>
 					<div class="controls">
-						<input id="name-input" type="name" class="input-xlarge" placeholder="Name" aria-describedby="name-label">
+						<input id="name-input" name="name" type="name" class="input-xlarge" placeholder="Name" aria-describedby="name-label">
 					</div>
 
 					<label id="email-label" class="control-label"> Optionally Enter Your Email </label>
 					<div class="controls">
-						<input id="email-input" type="email" class="input-xlarge" placeholder="Email" aria-describedby="email-label">
+						<input id="email-input" name="email" type="email" class="input-xlarge" placeholder="Email" aria-describedby="email-label">
 					</div>
 
 					<label class="control-label"> Newsletter</label>
 					<div class="controls">
 			      <div class="checkbox">
 			        <label>
-			          <input type="checkbox" id="newsletter-signup"> Sign me up for the Members-Only Newsletter</input>
+			          <input type="checkbox" name="newsletter-consent" id="newsletter-signup"> Sign me up for the Members-Only Newsletter</input>
 			        </label>
 			      </div>
 				  </div>
@@ -326,6 +326,5 @@
 					</div>
 				</div>
 			</fieldset>
-		</form>
 	</div>
 </div>

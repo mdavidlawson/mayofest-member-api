@@ -7882,6 +7882,7 @@ anythingElse	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/
 anythingElse	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/html5parser.py	/^        def anythingElse(self):$/;"	m	class:getPhases.InitialPhase
 ap_lower	import-utils/import-ss-orders/venv/include/python3.6m/code.h	/^        int ap_lower;$/;"	m	struct:_addr_pair
 ap_upper	import-utils/import-ss-orders/venv/include/python3.6m/code.h	/^        int ap_upper;$/;"	m	struct:_addr_pair
+api_router	app.js	/^var api_router = express.Router();$/;"	v
 api_version	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/index.py	/^    def api_version(self):$/;"	m	class:HTMLPage
 app	app.js	/^var app = express();$/;"	v
 apparent_encoding	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/requests/models.py	/^    def apparent_encoding(self):$/;"	m	class:Response
@@ -7991,6 +7992,7 @@ attributes	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_v
 attributes	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/treebuilders/etree_lxml.py	/^            attributes = property(_getAttributes, _setAttributes)$/;"	v	class:TreeBuilder.__init__.Element
 augassign	import-utils/import-ss-orders/venv/include/python3.6m/graminit.h	22;"	d
 author	package.json	/^  "author": "M. David Lawson",$/;"	f
+authors	public/bower.json	/^  "authors": [$/;"	f
 auto_chmod	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/setuptools/command/easy_install.py	/^def auto_chmod(func, arg, exc):$/;"	f
 autocomplete	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/__init__.py	/^def autocomplete():$/;"	f
 average	import-utils/import-ss-orders/venv/include/python3.6m/Zip.h	/^    UINT8* average;$/;"	m	struct:__anon145
@@ -8143,6 +8145,7 @@ boolean_options	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/s
 boolean_options	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/bdist_wheel.py	/^    boolean_options = ['keep-temp', 'skip-build', 'relative', 'universal']$/;"	v	class:bdist_wheel
 boolop_ty	import-utils/import-ss-orders/venv/include/python3.6m/Python-ast.h	/^typedef enum _boolop { And=1, Or=2 } boolop_ty;$/;"	t	typeref:enum:_boolop
 bootstrap	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/setuptools/command/easy_install.py	/^def bootstrap():$/;"	f
+bootstrap	public/bower.json	/^    "bootstrap": "^3.3.7",$/;"	f
 bootstrap_install_from	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/setuptools/__init__.py	/^bootstrap_install_from = None$/;"	v
 boundary	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/distlib/index.py	/^    boundary = b'----------ThIs_Is_tHe_distlib_index_bouNdaRY_$'$/;"	v	class:PackageIndex
 break_args_options	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/req/req_file.py	/^def break_args_options(line):$/;"	f
@@ -9303,6 +9306,7 @@ dependencies	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/
 dependencies	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/distlib/metadata.py	/^    def dependencies(self, value):$/;"	m	class:Metadata
 dependencies	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/test/pydist-schema.json	/^    "dependencies": {$/;"	f
 dependencies	package.json	/^  "dependencies": {$/;"	f
+dependencies	public/bower.json	/^  "dependencies": {$/;"	f
 dependency	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/test/pydist-schema.json	/^    "dependency": {$/;"	f
 depth	import-utils/import-ss-orders/venv/include/python3.6m/Imaging.h	/^    int depth;		\/* Depth (ignored in this version) *\/$/;"	m	struct:ImagingMemoryInstance
 dereference	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/distlib/_backport/tarfile.py	/^    dereference = False         # If true, add content of linked file to the$/;"	v	class:TarFile
@@ -9356,6 +9360,7 @@ description	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel
 description	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/test/pydist-schema.json	/^      "description": "The name of the distribution.",$/;"	f
 description	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/test/pydist-schema.json	/^      "description": "Version of the file format",$/;"	f
 description	package.json	/^  "description": "An api to support Membership registration checkin and reporting for Mayofest. Find out more about Mayofest at mayofest.org",$/;"	f
+description	public/bower.json	/^  "description": "An api to support Membership registration checkin and reporting for Mayofest. Find out more about Mayofest at mayofest.org",$/;"	f
 description_of	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/requests/packages/chardet/chardetect.py	/^def description_of(lines, name='stdin'):$/;"	f
 descrsetfunc	import-utils/import-ss-orders/venv/include/python3.6m/object.h	/^typedef int (*descrsetfunc) (PyObject *, PyObject *, PyObject *);$/;"	t
 dest	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/cmdoptions.py	/^    dest="allow_all_external",$/;"	v
@@ -10387,6 +10392,7 @@ fnmatchcase	import-utils/import-ss-orders/venv/lib/python3.6/fnmatch.py	/^def fn
 fnv	import-utils/import-ss-orders/venv/include/python3.6m/pyhash.h	/^    } fnv;$/;"	m	union:__anon162	typeref:struct:__anon162::__anon163
 fold	import-utils/import-ss-orders/venv/include/python3.6m/datetime.h	/^    unsigned char fold;$/;"	m	struct:__anon13
 fold	import-utils/import-ss-orders/venv/include/python3.6m/datetime.h	/^    unsigned char fold;$/;"	m	struct:__anon16
+font-awesome	public/bower.json	/^    "font-awesome": "fontawesome#^4.7.0"$/;"	f
 for_stmt	import-utils/import-ss-orders/venv/include/python3.6m/graminit.h	46;"	d
 force_global_eggs_after_local_site_packages	import-utils/import-ss-orders/venv/lib/python3.6/site.py	/^def force_global_eggs_after_local_site_packages():$/;"	f
 fore	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/colorama/winterm.py	/^    def fore(self, fore=None, light=False, on_stderr=False):$/;"	m	class:WinTerm
@@ -10417,6 +10423,8 @@ format_usage	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/
 format_value	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/distlib/_backport/sysconfig.py	/^def format_value(value, vars):$/;"	f
 formattingElements	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/constants.py	/^formattingElements = frozenset([$/;"	v
 formatwarning	import-utils/import-ss-orders/venv/lib/python3.6/warnings.py	/^def formatwarning(message, category, filename, lineno, line=None):$/;"	f
+formidable	app.js	/^var formidable = require('formidable');$/;"	v
+formidable	package.json	/^    "formidable": "^1.1.1",$/;"	f
 fp	import-utils/import-ss-orders/venv/include/python3.6m/TiffDecode.h	/^	int fp;$/;"	m	struct:__anon103
 fragmentClass	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/treebuilders/_base.py	/^    fragmentClass = None$/;"	v	class:TreeBuilder
 fragmentClass	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/treebuilders/dom.py	/^        def fragmentClass(self):$/;"	m	class:getDomBuilder.TreeBuilder
@@ -11281,6 +11289,7 @@ hide_setuptools	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/s
 highest_version	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/commands/search.py	/^def highest_version(versions):$/;"	f
 histogram	import-utils/import-ss-orders/venv/include/python3.6m/Imaging.h	/^    long *histogram;	\/* Histogram (bands*256 longs) *\/$/;"	m	struct:ImagingHistogramInstance
 homepage	package.json	/^  "homepage": "https:\/\/github.com\/mdavidlawson\/mayofest-member-api#readme",$/;"	f
+homepage	public/bower.json	/^  "homepage": "https:\/\/github.com\/mdavidlawson\/mayofest-member-api",$/;"	f
 host	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/requests/cookies.py	/^    def host(self):$/;"	m	class:MockRequest
 hostmask	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/ipaddress.py	/^    def hostmask(self):$/;"	m	class:_BaseNetwork
 hostname	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/requests/packages/urllib3/util/url.py	/^    def hostname(self):$/;"	m	class:Url
@@ -11316,6 +11325,7 @@ ifloordiv	import-utils/import-ss-orders/venv/lib/python3.6/operator.py	/^def ifl
 ifs	import-utils/import-ss-orders/venv/include/python3.6m/Python-ast.h	/^    asdl_seq *ifs;$/;"	m	struct:_comprehension
 iget	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/requests/packages/urllib3/_collections.py	/^    iget = getlist$/;"	v	class:HTTPHeaderDict
 iglob	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/distlib/util.py	/^def iglob(path_glob):$/;"	f
+ignore	public/bower.json	/^  "ignore": [$/;"	f
 ignoreEndTagCaption	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/html5parser.py	/^        def ignoreEndTagCaption(self):$/;"	m	class:getPhases.InCaptionPhase
 ignoreEndTagColgroup	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/html5parser.py	/^        def ignoreEndTagColgroup(self):$/;"	m	class:getPhases.InColumnGroupPhase
 ignoreEndTagTr	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/html5parser.py	/^        def ignoreEndTagTr(self):$/;"	m	class:getPhases.InRowPhase
@@ -11875,6 +11885,7 @@ libtype	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/setuptool
 license	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/test/pydist-schema.json	/^                "license": {$/;"	f
 license	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/test/pydist-schema.json	/^            "license": {$/;"	f
 license	package.json	/^  "license": "ISC",$/;"	f
+license	public/bower.json	/^  "license": "ISC",$/;"	f
 license_file	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/bdist_wheel.py	/^    def license_file(self):$/;"	m	class:bdist_wheel
 line	import-utils/import-ss-orders/venv/include/python3.6m/Imaging.h	/^  void* (*line)(Imaging im, int x, int y);$/;"	m	struct:ImagingAccessInstance
 lineno	import-utils/import-ss-orders/venv/include/python3.6m/Python-ast.h	/^    int lineno;$/;"	m	struct:_arg
@@ -12067,6 +12078,7 @@ main	import-utils/import-ss-orders/venv/lib/python3.6/site.py	/^def main():$/;"	
 main	import-utils/import-ss-orders/venv/lib/python3.6/tarfile.py	/^def main():$/;"	f
 main	import-utils/import-ss-orders/venv/lib/python3.6/tokenize.py	/^def main():$/;"	f
 main	package.json	/^  "main": "api.js",$/;"	f
+main	public/bower.json	/^  "main": "index.html",$/;"	f
 mainLoop	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/html5parser.py	/^    def mainLoop(self):$/;"	m	class:HTMLParser
 majver	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/test/test_ranking.py	/^majver = genver[:3]$/;"	v
 make	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/distlib/scripts.py	/^    def make(self, specification, options=None):$/;"	m	class:ScriptMaker
@@ -12214,6 +12226,7 @@ mode	import-utils/import-ss-orders/venv/include/python3.6m/Imaging.h	/^  const c
 mode	import-utils/import-ss-orders/venv/include/python3.6m/Zip.h	/^    int mode;$/;"	m	struct:__anon145
 mode	import-utils/import-ss-orders/venv/lib/python3.6/tempfile.py	/^    def mode(self):$/;"	m	class:SpooledTemporaryFile
 module	import-utils/import-ss-orders/venv/include/python3.6m/Python-ast.h	/^            identifier module;$/;"	m	struct:_stmt::__anon32::__anon51
+module.exports.add_member	routes/controllers/database-controller.js	/^  },$/;"	m
 module.exports.get_members	routes/controllers/database-controller.js	/^module.exports = {$/;"	m
 moduleFactory	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/utils.py	/^    def moduleFactory(baseModule, *args, **kwargs):$/;"	f	function:moduleFactoryFactory
 moduleFactoryFactory	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/utils.py	/^def moduleFactoryFactory(factory):$/;"	f
@@ -12311,6 +12324,7 @@ name	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/test/p
 name	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/test/pydist-schema.json	/^    "name": {$/;"	f
 name	import-utils/import-ss-orders/venv/lib/python3.6/tempfile.py	/^    def name(self):$/;"	m	class:SpooledTemporaryFile
 name	package.json	/^  "name": "mayofest-member-api",$/;"	f
+name	public/bower.json	/^  "name": "Mayofest Member API",$/;"	f
 nameFirst	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/ihatexml.py	/^nameFirst = " | ".join([letter, "_"])$/;"	v
 nameTuple	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/treebuilders/dom.py	/^        nameTuple = property(getNameTuple)$/;"	v	class:getDomBuilder.NodeBuilder
 name_and_version	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/distlib/database.py	/^    def name_and_version(self):$/;"	m	class:Distribution
@@ -12897,6 +12911,7 @@ printgrammar	import-utils/import-ss-orders/venv/include/python3.6m/pgenheaders.h
 printnonterminals	import-utils/import-ss-orders/venv/include/python3.6m/pgenheaders.h	33;"	d
 printtree	import-utils/import-ss-orders/venv/include/python3.6m/pgenheaders.h	34;"	d
 prior	import-utils/import-ss-orders/venv/include/python3.6m/Zip.h	/^    UINT8* prior;		\/* filter storage (allocated) *\/$/;"	m	struct:__anon145
+private	public/bower.json	/^  "private": true,$/;"	f
 proceed	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/distlib/util.py	/^def proceed(prompt, allowed_chars, error_prompt=None, default=None):$/;"	f
 process	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/setuptools/command/easy_install.py	/^        def process(src, dst):$/;"	f	function:easy_install.exe_to_egg
 processCharacters	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/html5lib/html5parser.py	/^        def processCharacters(self, token):$/;"	m	class:getPhases.AfterAfterBodyPhase
@@ -13435,7 +13450,6 @@ root_is_purelib	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/p
 rot13	import-utils/import-ss-orders/venv/lib/python3.6/encodings/rot_13.py	/^def rot13(infile, outfile):$/;"	f
 rot13_map	import-utils/import-ss-orders/venv/lib/python3.6/encodings/rot_13.py	/^rot13_map = codecs.make_identity_dict(range(256))$/;"	v
 rotate	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/setuptools/command/rotate.py	/^class rotate(Command):$/;"	c
-router	app.js	/^var router = express.Router();$/;"	v
 rpartition	import-utils/import-ss-orders/venv/lib/python3.6/collections/__init__.py	/^    def rpartition(self, sep):$/;"	m	class:UserString
 rshift	import-utils/import-ss-orders/venv/lib/python3.6/operator.py	/^def rshift(a, b):$/;"	f
 rsplit	import-utils/import-ss-orders/venv/lib/python3.6/collections/__init__.py	/^    def rsplit(self, sep=None, maxsplit=-1):$/;"	m	class:UserString
@@ -13484,7 +13498,7 @@ run_listing	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/c
 run_main	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/pkg_resources/__init__.py	/^run_main = run_script$/;"	v
 run_main	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pkg_resources/__init__.py	/^run_main = run_script$/;"	v
 run_outdated	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/commands/list.py	/^    def run_outdated(self, options):$/;"	m	class:ListCommand
-run_query	routes/controllers/database-controller.js	/^function run_query(query_str, query_callback){$/;"	f
+run_query	routes/controllers/database-controller.js	/^function run_query(query_str, data, query_callback){$/;"	f
 run_requires	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/distlib/database.py	/^    def run_requires(self):$/;"	m	class:Distribution
 run_requires	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/wheel/test/pydist-schema.json	/^    "run_requires": {$/;"	f
 run_script	import-utils/import-ss-orders/venv/lib/python3.6/site-packages/pip/_vendor/pkg_resources/__init__.py	/^    def run_script(script_name, namespace):$/;"	m	class:IMetadataProvider

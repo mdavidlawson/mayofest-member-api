@@ -1,0 +1,22 @@
+{
+  "name": "Mayofest Member API",
+  "homepage": "https://github.com/mdavidlawson/mayofest-member-api",
+  "authors": [
+    "mdavidlawson <mdavidlawson@gmail.com>"
+  ],
+  "description": "An api to support Membership registration checkin and reporting for Mayofest. Find out more about Mayofest at mayofest.org",
+  "main": "index.html",
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
