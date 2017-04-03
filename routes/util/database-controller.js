@@ -32,5 +32,8 @@ module.exports = {
     set_values="";
     // TODO clean this up and automate the query creation. mariasql doesn't support feeding dict objects in any other way :()
     run_query("INSERT INTO member SET memberNumber=:memberNumber, name=:name, email=:email, address=:address, status=:status", data, query_callback);
+  },
+  get_token: function(token, query_callback){
+    run_query("SELECT * FROM token WHERE token=:token", {token:token}, query_callback);
   }
 }
