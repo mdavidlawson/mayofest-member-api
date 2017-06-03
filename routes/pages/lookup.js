@@ -1,6 +1,24 @@
 
 var exports = module.exports;
 exports.init = function(req, res){
-  scripts = [{script: "js/admin-lookup.js"}];
-  res.render("pages/admin-lookup", {scripts:scripts});
+
+      var scripts = [
+        {script: 'js/admin-lookup.js'},
+        {script: "bower_components/handlebars/handlebars.js"}
+
+      ];
+      var context = {
+        layoutData: {
+        title: 'Member Lookup',
+        subtitle: "Members",
+        scripts: scripts,
+        meta: {
+          author: 'Dave Lawson',
+          description: '',
+          keywords: '',
+          robots: ''
+        }
+      }
+    };
+  res.render("pages/admin-lookup", context);
 }

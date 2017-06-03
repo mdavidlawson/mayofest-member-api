@@ -29,14 +29,7 @@ app.set('view engine', 'hbs');
 
 var port = process.env.PORT || 8080;
 
-app.get("/member", function(req, res){
-    scripts = [{script: 'js/member-intake.js'}];
-    res.render('home', {scripts: scripts});
-});
-app.get("/lookup", function(req, res){
-  scripts = [{script: "js/admin-lookup.js"}];
-  res.render("pages/admin-lookup", {scripts:scripts});
-})
+app.use("/", routers.view)
 app.use("/api", routers.api);
 app.use(express.static('public/'));
 mongoose.connect("mongodb://localhost/mayofest-member-db");

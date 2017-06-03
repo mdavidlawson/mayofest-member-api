@@ -5,13 +5,14 @@
       <th>Email</th>
     </thead>
     <tbody>
-      {{#members}}
-        <tr>
-          <td>{{firstName}} {{lastName}}</td>
-          <td>{{email}}</td>
-        </tr>
-      {{/members}}
+      \{{#if members}}
+        \{{#members}}
+          <tr>
+            <td>\{{name}}</td>
+            <td>\{{email}}</td>
+          </tr>
+        \{{/members}}
+      \{{/if}}
     </tbody>
   </table>
-
 </script>
