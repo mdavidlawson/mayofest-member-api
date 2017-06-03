@@ -3,13 +3,18 @@ $(document).ready(function(){
 });
 
 function _init_table(){
-  var $src = $("#member-table").html();
+  var $src = $("#member-table-template").html();
   var template = Handlebars.compile($src);
-  _get_members().done(function(data){
-    $("#member-table-container").append(template({members:data}));
-  });
+  $("#member-table-container").append(template());
+  _wrap_table();
 }
-
-function _get_members(){
-    return $.getJSON(window.location.origin + "/api/member");
+function _wrap_table(){
+  $("#member-table").dataTable({
+    "ajax": window.location.origin + "/api/member",
+    "columns": [
+        {"data": "memberNumber"},
+            {"data": "name"},
+                {"data": "email"}
+    ]
+  });
 }

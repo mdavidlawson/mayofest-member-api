@@ -1,18 +1,9 @@
-<script id="member-table" type="text/x-handlebars-template">
-  <table>
+<script id="member-table-template" type="text/x-handlebars-template">
+  <table id="member-table">
     <thead>
+      <th>Member #</th>
       <th>Real Name</th>
       <th>Email</th>
     </thead>
-    <tbody>
-      \{{#if members}}
-        \{{#members}}
-          <tr>
-            <td>\{{name}}</td>
-            <td>\{{email}}</td>
-          </tr>
-        \{{/members}}
-      \{{/if}}
-    </tbody>
   </table>
 </script>

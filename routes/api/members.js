@@ -4,7 +4,7 @@ var exports = module.exports;
 
 exports.getAllMembers = function(req, res){
   _getAllMembers().then(function(result){
-    res.json(result);
+    res.json({"data":result});
   });
 }
 exports.addMember = function(req, res){
