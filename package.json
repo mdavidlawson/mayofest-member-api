@@ -21,10 +21,8 @@
     "express": "~4.0.0",
     "express-handlebars": "^3.0.0",
     "formidable": "^1.1.1",
-    "mariasql": "^0.2.6",
-    "mariasql-promise": "^2.0.0",
+    "mongoose": "^4.10.4",
     "passport": "^0.3.2",
-    "passport-http-bearer": "^1.0.1",
-    "sales": "0.0.1"
+    "passport-http-bearer": "^1.0.1"
   }
 }

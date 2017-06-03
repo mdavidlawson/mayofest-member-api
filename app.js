@@ -4,9 +4,16 @@ var api = require("./routes/api");
 var exphbs = require('express-handlebars');
 var passport = require('passport');
 var Strategy = require('passport-http-bearer').Strategy;
-var fs = require("fs");
-
+const fs = require('fs');
+const join = require('path').join;
+var mongoose = require("mongoose");
+const models = join(__dirname, 'models');
 var app = express();
+// Bootstrap models
+fs.readdirSync(models)
+  .filter(file => ~file.indexOf('.js'))
+  .forEach(file => require(join(models, file)));
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -30,7 +37,7 @@ var port = process.env.PORT || 8080;
 var api_router = express.Router();
 
 api_router.get("/member", function(req, res){
-  api.members.get_all_members(function(result){
+  api.members.get_all_members().then(function(result){
     res.json(result);
   });
 });
@@ -40,23 +47,8 @@ api_router.get("/auth-test",
       res.json({ username: req.user.username, email: req.user.emails[0].value })
   });
 api_router.post("/member", function(req, res){
-  // {"name":"test","email":"","address-line1":"","address-line2":"","city":"","region":"","postal-code":"","country":""}
-
     console.log("Form values: " + JSON.stringify(req.body));
     data = {
-      /**
-      +==============+==================+======+=====+=========+================+
-      | Field        | Type             | Null | Key | Default | Extra          |
-      +==============+==================+======+=====+=========+================+
-      | id           | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
-      | memberNumber | int(10) unsigned | NO   |     | NULL    |                |
-      | name         | varchar(255)     | NO   |     | NULL    |                |
-      | email        | varchar(255)     | NO   |     | NULL    |                |
-      | address      | varchar(255)     | NO   |     | NULL    |                |
-      | note         | text             | YES  |     | NULL    |                |
-      | status       | varchar(255)     | YES  |     | NULL    |                |
-      +==============+==================+======+=====+=========+================+
-      */
       memberNumber: Math.floor(Math.random() * (9999 - 1) + 1),
       name: req.body.name,
       email: req.body.email,
@@ -69,7 +61,7 @@ api_router.post("/member", function(req, res){
       status: "INACTIVE"
      }
 
-  api.members.add_member(data, function(result){
+  api.members.add_member(data).then(function(result){
     res.json(result);
   })
 });
@@ -80,5 +72,14 @@ app.get("/member", function(req, res){
 
 app.use("/api", api_router);
 app.use(express.static('public/'));
-app.listen(port);
-console.log("Magic happens on port: " + port);
+mongoose.connect("mongodb://localhost/mayofest-member-db");
+mongoose.connection
+  .on("error", console.log)
+  .on("disconnect", function(){
+    console.log("We're disconnected");
+  })
+  .once("open", function(){
+    app.listen(port);
+    console.log("Magic happens on port: " + port);
+
+  });
