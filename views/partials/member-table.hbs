@@ -1,0 +1,17 @@
+<script id="member-table" type="text/x-handlebars-template">
+  <table>
+    <thead>
+      <th>Real Name</th>
+      <th>Email</th>
+    </thead>
+    <tbody>
+      {{#members}}
+        <tr>
+          <td>{{firstName}} {{lastName}}</td>
+          <td>{{email}}</td>
+        </tr>
+      {{/members}}
+    </tbody>
+  </table>
+
+</script>
