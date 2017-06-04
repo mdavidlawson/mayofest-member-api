@@ -28,6 +28,8 @@ exports.saveNewMember = function(req, res){
     console.log("Form values: " + JSON.stringify(req.body));
   _saveNewMember(req.body).then(function(result){
     res.json(result);
+  }, function(error){
+    res.status(500).send(error.message);
   })
 };
 exports.updateMember = function(req, res){

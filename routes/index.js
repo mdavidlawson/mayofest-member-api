@@ -27,6 +27,7 @@ api_router.put("/member/:id", api.members.updateMember);
 // view Paths
 var view_router = express.Router();
 view_router.get("/member", pages.members.init);
+view_router.get("/kiosk", pages.kiosk.init);
 view_router.get("/lookup", pages.lookup.init)
 
 var exports = module.exports
