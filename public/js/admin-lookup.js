@@ -1,6 +1,5 @@
 $(document).ready(function(){
   _init_table();
-  _setup_add();
 });
 
 function _init_table(){
@@ -28,9 +27,6 @@ function _wrap_table(){
     ]
   });
 }
-function _setup_add(){
-  $("#save-changes").click(onAdd);
-}
 function _make_custom_button(text, handler){
   return {
       text: text,
@@ -54,6 +50,11 @@ function doReload(){
 function doAdd(e, dt, node, config){
   $("#intake-model").modal({
     show: true
+  })
+  .off("click", "#save-member")
+  .one("click", "#save-member", function(e){
+    console.log("Adding");
+    onAdd();
   });
 }
 function doRemove(e, dt, node, config){
@@ -78,9 +79,28 @@ function doRemove(e, dt, node, config){
     });
 }
 function doEdit(e, dt, node, config){
-  console.log("Editing!");
+  var selectedItem = _get_single_selected();
+  if (!selectedItem){
+    console.log("Will not edit, nothing selected.");
+    return;
+  }
+  $.getJSON(window.location.origin + "/api/member/"+selectedItem._id)
+    .done(function(data){
+      for (var name in data.data){
+        $("[name='"+name+"']").val(data.data[name]);
+      }
+      $("#intake-model").modal({
+        show: true
+      })
+      .off("click", "#save-member")
+      .one("click", "#save-member", function(e){
+        console.log("Updating");
+        onEdit(selectedItem._id);
+      });
+    })
+
 }
-function onAdd(e){
+function onAdd(){
   $.post(window.location.origin + "/api/member", $("#membership-intake").serialize())
     .done(function() {
       console.log("Success");
@@ -90,5 +110,15 @@ function onAdd(e){
       console.log( "error" );
     }).always(function(){
       console.log( "done" );
+    });
+}
+function onEdit(id){
+    $.ajax({
+      url: window.location.origin + "/api/member/"+id,
+      data: $("#membership-intake").serialize(),
+      type: 'put'
+    }).done(function(){
+      console.log("Updated");
+      doReload();
     });
 }

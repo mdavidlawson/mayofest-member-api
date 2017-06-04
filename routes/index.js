@@ -16,8 +16,13 @@ passport.use(new Strategy(
     });
   }));
 api_router.get("/member", api.members.getAllMembers);
+api_router.get("/members", api.members.getAllMembers);
+api_router.get("/member/:id", api.members.getMemberById);
+api_router.delete("/member/:id", api.members.deleteMemberById);
+api_router.delete("/members", api.members.deleteAllMembers);
 api_router.get("/auth-test", passport.authenticate('bearer', { session: false }), api.auth.authenticate);
-api_router.post("/member", api.members.addMember);
+api_router.post("/member", api.members.saveNewMember);
+api_router.put("/member/:id", api.members.updateMember);
 
 // view Paths
 var view_router = express.Router();
