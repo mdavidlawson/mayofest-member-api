@@ -11,6 +11,9 @@ const models = join(__dirname, 'models');
 var app = express();
 var routers = require("./routes");
 
+// import counter schema first
+require("./routes/util/counter-schema");
+
 // Bootstrap models
 fs.readdirSync(models)
   .filter(file => ~file.indexOf('.js'))
