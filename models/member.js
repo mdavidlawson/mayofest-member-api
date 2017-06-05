@@ -20,7 +20,14 @@ var MemberSchema = new Schema({
       type: String,
       require: true,
       default: "INACTIVE"
-    }
+    },
+    newsletterConsent: Boolean,
+    addressLineA: String,
+    addressLineB: String,
+    city: String,
+    region: String,
+    postalCode: String,
+    country: String
 });
 MemberSchema.pre('save', function(next) {
     var document = this;
@@ -35,7 +42,3 @@ MemberSchema.pre('save', function(next) {
     });
 });
 var Member = mongoose.model("Member", MemberSchema);
-
-function _generateMemberNumber(){
-  return Math.floor(Math.random() * (9999 - 1) + 1)
-}

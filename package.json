@@ -22,6 +22,7 @@
     "express-handlebars": "^3.0.0",
     "formidable": "^1.1.1",
     "mongoose": "^4.10.4",
+    "mongoose-double": "0.0.1",
     "passport": "^0.3.2",
     "passport-http-bearer": "^1.0.1"
   }
