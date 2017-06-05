@@ -24,6 +24,7 @@ function _wrap_table(){
         _make_custom_button("Add", doAdd),
         _make_custom_button("Edit", doEdit),
         _make_custom_button("Remove", doRemove),
+        _make_custom_button("View", doView)
     ]
   });
 }
@@ -48,6 +49,7 @@ function doReload(){
   $("#member-table").DataTable().ajax.reload();
 }
 function doAdd(e, dt, node, config){
+  $("#membership-intake")[0].reset();
   $("#intake-model").modal({
     show: true
   })
@@ -84,6 +86,7 @@ function doEdit(e, dt, node, config){
     console.log("Will not edit, nothing selected.");
     return;
   }
+  $("#membership-intake")[0].reset();
   $.getJSON(window.location.origin + "/api/member/"+selectedItem._id)
     .done(function(data){
       for (var name in data.data){
@@ -99,6 +102,34 @@ function doEdit(e, dt, node, config){
       });
     })
 
+}
+function doView(e, dt, node, config){
+  var selectedItem = _get_single_selected();
+  if (!selectedItem){
+    console.log("Will not edit, nothing selected.");
+    return;
+  }
+  var filterKeys = ["__v", "_id"];
+  $("#member-info-header").text("LLS Member: " + selectedItem.memberNumber);
+  var $container = $("#member-info");
+  $container.empty();
+  $container.append("<h3>Personal Info</h3>");
+  for (var dataKey in selectedItem){
+    if (filterKeys.includes(dataKey)) continue;
+
+    var $label = $("<label class='control-label'></label>");
+    $label.text(dataKey);
+
+    var $component = $("<p class='form-control-static'></p>");
+    $component.text(String(selectedItem[dataKey]));
+
+    var $formGroup = $("<div class='form-group'></div>");
+    $formGroup.append($label).append($component);
+    $container.append($formGroup);
+  }
+  $("#view-member").modal({
+    view: true
+  });
 }
 function onAdd(){
   $.post(window.location.origin + "/api/member", $("#membership-intake").serialize())

@@ -5,7 +5,8 @@ var Schema = mongoose.Schema,
 
 var MemberRoleSchema = new Schema({
     id: ObjectId,
-    memberNumber: Number,
-    role: String
+    memberNumber: {type: Number, required: true},
+    role: {type: String, required:true}
 });
+// TODO Add index here for uniqueness. 
 mongoose.model("MemberRole", MemberRoleSchema);
