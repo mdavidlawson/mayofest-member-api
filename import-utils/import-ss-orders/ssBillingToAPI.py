@@ -38,7 +38,7 @@ def main(orders_csv_path, api_path):
                 print ("Failed to add order: {o} Reason: {r}".format(o=order["ssOrderId"], r=result.text))
                 continue
             else:
-                print ("Added new order: " + result.json()._id)
+                print ("Added new order: " + result.json().["_id"])
         else:
             print ("skipping already added order: {o}".format(o=order["ssOrderId"]))
         result = requests.post(api_path+"/lineitem", data=translated_item)

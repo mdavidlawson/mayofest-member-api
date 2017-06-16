@@ -14,7 +14,12 @@ var MemberSchema = new Schema({
       unique: true
     },
     name: String,
-    email: String,
+    email: {
+      type: String,
+      index: true,
+      require: true,
+      unique: true
+    },
     note: String,
     status: {
       type: String,

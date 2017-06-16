@@ -13,6 +13,12 @@ exports.getMemberById = function(req, res){
     res.json({"data": result});
   });
 }
+exports.getMemberByEmail = function(req, res){
+  var email = req.params.email;
+  _getMemberByEmail(email).then(function(result){
+    res.json({"data": result});
+  })
+}
 exports.deleteMemberById = function(req, res){
   var id = req.params.id;
   _deleteMemberByID(id).then(function(result){
@@ -52,6 +58,9 @@ function _searchMembersByCriteria(criteria){
 function _getMemberByID(id){
   var Member = mongoose.model("Member");
   return Member.findById(id).exec();
+}
+function _getMemberByEmail(email){
+  return _searchMembersByCriteria({"email":email});
 }
 function _deleteMemberByID(id){
   var Member = mongoose.model("Member");
