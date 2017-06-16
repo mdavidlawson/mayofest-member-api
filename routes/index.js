@@ -29,8 +29,10 @@ api_router.put("/member/:id", api.members.updateMember);
 
 // Orders
 api_router.get("/order", api.orders.getAllOrders);
+api_router.get("/order/orderNumber/:orderNumber", api.orders.findByOrderNumber);
 api_router.get("/orders", api.orders.getAllOrders);
 api_router.post("/order", api.orders.saveNewOrder);
+api_router.delete("/orders", api.orders.deleteAllOrders);
 
 // LineItems
 api_router.get("/lineitem", api.lineitems.getAllLineItems);
