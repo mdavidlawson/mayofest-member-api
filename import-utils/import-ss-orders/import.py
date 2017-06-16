@@ -41,6 +41,16 @@ def main(orders_csv_path, api_path):
                 print ("Added new order: " + result.json()._id)
         else:
             print ("skipping already added order: {o}".format(o=order["ssOrderId"]))
+        result = requests.post(api_path+"/lineitem", data=translated_item)
+        if result.status_code != 200:
+            print ("Failed to add line item: {l} Order ID: {o} Reason: {r}"
+                .format(l=translated_item["item"],
+                o=translated_item["orderId"],
+                r=result.text))
+            continue
+        else:
+            print ("Added new line item: {l} for order: {o}".format(l=translated_item["item"], o=translated_item["orderId"]))
+
 
 def _check_add_order(order):
     global orders

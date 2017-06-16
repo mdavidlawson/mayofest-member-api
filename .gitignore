@@ -40,3 +40,5 @@ jspm_packages
 
 .jsbeautifyrc
 bower_components
+venv
+.python-version

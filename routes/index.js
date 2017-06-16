@@ -35,9 +35,10 @@ api_router.post("/order", api.orders.saveNewOrder);
 api_router.delete("/orders", api.orders.deleteAllOrders);
 
 // LineItems
-api_router.get("/lineitem", api.lineitems.getAllLineItems);
+api_router.get("/lineitems", api.lineitems.getAllLineItems);
 api_router.get("/lineitem", api.lineitems.getAllLineItems);
 api_router.post("/lineitem", api.lineitems.saveNewLineItem);
+api_router.delete("/lineitems", api.lineitems.deleteAllLineItems);
 
 // Auth
 api_router.get("/auth-test", passport.authenticate('bearer', { session: false }), api.auth.authenticate);

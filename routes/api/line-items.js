@@ -15,11 +15,19 @@ exports.saveNewLineItem = function(req, res){
     res.status(500).send(error.message);
   })
 };
+exports.deleteAllLineItems = function(req, res){
+  _deleteAllLineItems().then(function(result){
+    res.json({"data": result});
+  })
+}
 function _getAllLineItems(){
     var LineItem = mongoose.model("LineItem");
     return LineItem.find({}).exec();
 }
-
+function _deleteAllLineItems(){
+  var LineItem = mongoose.model("LineItem");
+  return LineItem.find({}).remove();
+}
 function _saveNewLineItem(data){
   console.log("Adding: ", data);
   var LineItem = mongoose.model("LineItem");
