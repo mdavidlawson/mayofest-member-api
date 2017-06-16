@@ -23,6 +23,7 @@ api_router.get("/member", api.members.getAllMembers);
 api_router.get("/members", api.members.getAllMembers);
 api_router.get("/member/:id", api.members.getMemberById);
 api_router.get("/member/email/:email", api.members.getMemberByEmail);
+api_router.get("/member/orderNumber/:orderNumber", api.members.getMemberByOrderNumber);
 api_router.delete("/member/:id", api.members.deleteMemberById);
 api_router.delete("/members", api.members.deleteAllMembers);
 api_router.post("/member", api.members.saveNewMember);

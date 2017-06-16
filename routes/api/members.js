@@ -13,6 +13,12 @@ exports.getMemberById = function(req, res){
     res.json({"data": result});
   });
 }
+exports.getMemberByOrderNumber = function(req, res){
+  var orderNumber = req.params.orderNumber;
+  _searchMembersByCriteria({"orderNumber": Number(orderNumber)}).then(function(result){
+    res.json({"data": result});
+  });
+}
 exports.getMemberByEmail = function(req, res){
   var email = req.params.email;
   _getMemberByEmail(email).then(function(result){

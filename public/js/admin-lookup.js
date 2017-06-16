@@ -15,7 +15,8 @@ function _wrap_table(){
         {"data": "memberNumber"},
         {"data": "name"},
         {"data": "email"},
-        {"data": "status"}
+        {"data": "status"},
+        {"data": "checkinStatus"}
     ],
     select: "single",
     dom: 'Bfrtip',
@@ -24,7 +25,8 @@ function _wrap_table(){
         _make_custom_button("Add", doAdd),
         _make_custom_button("Edit", doEdit),
         _make_custom_button("Remove", doRemove),
-        _make_custom_button("View", doView)
+        _make_custom_button("View", doView),
+        _make_custom_button("Checkin Member", doCheckin)
     ]
   });
 }
@@ -47,6 +49,23 @@ function doReload(e, dt, node, config){
 }
 function doReload(){
   $("#member-table").DataTable().ajax.reload();
+}
+function doCheckin(e, dt, node, config){
+  var selectedItem = _get_single_selected();
+  if (!selectedItem){
+    console.log("Will not delete, nothing selected.");
+    return;
+  }
+  selectedItem.checkinStatus = true
+  $.ajax({
+    url: window.location.origin + "/api/member/"+selectedItem._id,
+    data: selectedItem,
+    type: 'put'
+  }).done(function(){
+    console.log("Updated");
+    doReload();
+  });
+
 }
 function doAdd(e, dt, node, config){
   $("#membership-intake")[0].reset();
@@ -90,6 +109,13 @@ function doEdit(e, dt, node, config){
   $.getJSON(window.location.origin + "/api/member/"+selectedItem._id)
     .done(function(data){
       for (var name in data.data){
+        if (name === "checkinStatus") {
+          if (data.data[name]){
+            $("[name='checkinStatus']").attr("checked", "")
+          } else {
+            $("[name='checkinStatus']").removeAttr("checked")
+          }
+        }
         $("[name='"+name+"']").val(data.data[name]);
       }
       $("#intake-model").modal({
@@ -144,9 +170,11 @@ function onAdd(){
     });
 }
 function onEdit(id){
+    var formData = $("#membership-intake").serialize();
+    formData += "&checkinStatus=" + $("[name='checkinStatus']")[0].checked;
     $.ajax({
       url: window.location.origin + "/api/member/"+id,
-      data: $("#membership-intake").serialize(),
+      data: formData,
       type: 'put'
     }).done(function(){
       console.log("Updated");

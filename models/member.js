@@ -32,7 +32,9 @@ var MemberSchema = new Schema({
     city: String,
     region: String,
     postalCode: String,
-    country: String
+    country: String,
+    orderNumber: Number,
+    checkinStatus: {type: Boolean, default: false}
 });
 MemberSchema.pre('save', function(next) {
     var document = this;

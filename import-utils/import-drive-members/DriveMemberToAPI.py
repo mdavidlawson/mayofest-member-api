@@ -52,7 +52,8 @@ def _translate_member(member):
         "city": member["City/Town"],
         "region": member["Province/State/Region"],
         "postalCode": member["Postal/ZipCode"],
-        "country": member["Country"]
+        "country": member["Country"],
+        "orderNumber": int(member["Squarespaceordernumber(officeuseonly)"])
     }
 
 if __name__ == "__main__":
