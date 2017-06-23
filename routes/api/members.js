@@ -50,7 +50,6 @@ exports.updateMember = function(req, res){
     res.json(result);
   })
 };
-
 // internal functions
 // TODO potentially move into model functions?
 function _getAllMembers(){

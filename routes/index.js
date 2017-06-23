@@ -42,6 +42,12 @@ api_router.get("/lineitem", api.lineitems.getAllLineItems);
 api_router.post("/lineitem", api.lineitems.saveNewLineItem);
 api_router.delete("/lineitems", api.lineitems.deleteAllLineItems);
 
+// reports
+api_router.get("/report/checkedInMembers/count", api.report.getCountOfCheckedInMembers);
+api_router.get("/report/activeMembers/count", api.report.getCountOfActiveMembers);
+api_router.get("/report/activeMemberEmail/info", api.report.getActiveMemberEmailInfo);
+api_router.get("/report/getActiveMemberEmailMailingList/info", api.report.getActiveMemberEmailMailingList);
+
 // Auth
 api_router.get("/auth-test", passport.authenticate('bearer', { session: false }), api.auth.authenticate);
 
