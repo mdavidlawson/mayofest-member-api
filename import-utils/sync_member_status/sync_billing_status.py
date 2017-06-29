@@ -13,6 +13,7 @@ def main(api_path):
     orders = requests.get("{a}/orders".format(a=api_path)).json()
     for order in orders["data"]:
         if int(order["memberNumber"]) != -1:
+            print "Skipping already synced order"
             continue
         line_items = requests.get("{a}/lineitem/orderNumber/{orderId}".format(a=api_path, orderId=order["ssOrderId"])).json()
         for line_item in line_items:
