@@ -28,6 +28,7 @@ api_router.delete("/member/:id", api.members.deleteMemberById);
 api_router.delete("/members", api.members.deleteAllMembers);
 api_router.post("/member", api.members.saveNewMember);
 api_router.put("/member/:id", api.members.updateMember);
+api_router.get("/member/operations/checkoutAllMembers", api.members.checkoutAllMembers);
 
 // Orders
 api_router.get("/order", api.orders.getAllOrders);
@@ -35,10 +36,12 @@ api_router.get("/order/orderNumber/:orderNumber", api.orders.findByOrderNumber);
 api_router.get("/orders", api.orders.getAllOrders);
 api_router.post("/order", api.orders.saveNewOrder);
 api_router.delete("/orders", api.orders.deleteAllOrders);
+api_router.put("/order/:id", api.orders.updateOrder);
 
 // LineItems
 api_router.get("/lineitems", api.lineitems.getAllLineItems);
 api_router.get("/lineitem", api.lineitems.getAllLineItems);
+api_router.get("/lineitem/orderNumber/:orderNumber", api.lineitems.getAllLineItemsByOrderNumber);
 api_router.post("/lineitem", api.lineitems.saveNewLineItem);
 api_router.delete("/lineitems", api.lineitems.deleteAllLineItems);
 

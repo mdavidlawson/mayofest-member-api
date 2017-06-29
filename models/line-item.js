@@ -11,6 +11,7 @@ var LineItemSchema = new Schema({
     item: String,
     qty: Number,
     price: SchemaTypes.Double,
-    fufillmentStatus: String
+    fufillmentStatus: String,
+    variation: String
 });
 mongoose.model("LineItem", LineItemSchema);

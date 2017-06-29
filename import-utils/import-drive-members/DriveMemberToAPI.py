@@ -42,6 +42,7 @@ def _fix_keys(member):
     return {k.translate(None, " "): v for k, v in member.items()}
 
 def _translate_member(member):
+    orderNumber = int(member["Squarespaceordernumber(officeuseonly)"]) if member["Squarespaceordernumber(officeuseonly)"] else None
     return {
         "name": member["FullName"],
         "email": member["Email"],
@@ -53,7 +54,7 @@ def _translate_member(member):
         "region": member["Province/State/Region"],
         "postalCode": member["Postal/ZipCode"],
         "country": member["Country"],
-        "orderNumber": int(member["Squarespaceordernumber(officeuseonly)"])
+        "orderNumber": orderNumber
     }
 
 if __name__ == "__main__":

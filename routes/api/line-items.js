@@ -20,6 +20,13 @@ exports.deleteAllLineItems = function(req, res){
     res.json({"data": result});
   })
 }
+exports.getAllLineItemsByOrderNumber = function(req, res){
+  _getAllLineItemsByOrderNumber(req.params.orderNumber).then(function(result){
+    res.json(result);
+  }, function(error){
+    res.status(500).send(error.message);
+  });
+}
 function _getAllLineItems(){
     var LineItem = mongoose.model("LineItem");
     return LineItem.find({}).exec();
@@ -33,4 +40,8 @@ function _saveNewLineItem(data){
   var LineItem = mongoose.model("LineItem");
   var newLineItem = LineItem(data);
   return newLineItem.save();
+}
+function _getAllLineItemsByOrderNumber(orderNumber) {
+  var LineItem = mongoose.model("LineItem");
+  return LineItem.find({orderId: orderNumber}).exec();
 }

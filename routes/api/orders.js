@@ -28,6 +28,11 @@ exports.deleteAllOrders = function(req, res){
     res.json({"data": result});
   })
 }
+exports.updateOrder = function(req, res){
+  _updateOrder(req.params.id, req.body).then(function(result){
+    res.json(result);    
+  });
+}
 function _getAllOrders(){
     var Order = mongoose.model("Order");
     return Order.find({}).exec();
@@ -45,4 +50,9 @@ function _saveNewOrder(data){
 function _deleteAllOrders(){
   var Order = mongoose.model("Order");
   return Order.find({}).remove();
+}
+function _updateOrder(id, data){
+  console.log("Updating ID: ", id);
+  var Order = mongoose.model("Order");
+  return Order.findOneAndUpdate({_id:id}, data);
 }

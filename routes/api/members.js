@@ -50,6 +50,14 @@ exports.updateMember = function(req, res){
     res.json(result);
   })
 };
+exports.checkoutAllMembers = function(req, res){
+  console.log("Checkout all members...")
+  _bulkCheckoutMembers().then(function(result){
+    res.json(result);
+  }, function(error){
+    res.status(500).send(error.message);
+  })
+}
 // internal functions
 // TODO potentially move into model functions?
 function _getAllMembers(){
@@ -89,4 +97,8 @@ function _updateMember(id, data){
   console.log("Updating ID: ", id);
   var Member = mongoose.model("Member");
   return Member.findOneAndUpdate({_id:id}, data);
+}
+function _bulkCheckoutMembers(){
+  var Member = mongoose.model("Member");
+  return Member.find({checkinStatus:"true"}).update({$set: {checkinStatus: false}}).exec();
 }

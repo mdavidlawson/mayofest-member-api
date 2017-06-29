@@ -73,7 +73,8 @@ def _translate_line_item(item):
         "item": item["Lineitem name"],
         "qty": item["Lineitem quantity"],
         "price": item["Lineitem price"],
-        "fufillmentStatus": item["Fulfillment Status"]
+        "fufillmentStatus": item["Fulfillment Status"],
+        "variation": item["Lineitem variant"]
     }
 
 if __name__ == "__main__":
