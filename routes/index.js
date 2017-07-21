@@ -50,6 +50,7 @@ api_router.get("/report/checkedInMembers/count", api.report.getCountOfCheckedInM
 api_router.get("/report/activeMembers/count", api.report.getCountOfActiveMembers);
 api_router.get("/report/activeMemberEmail/info", api.report.getActiveMemberEmailInfo);
 api_router.get("/report/getActiveMemberEmailMailingList/info", api.report.getActiveMemberEmailMailingList);
+api_router.get("/report/getSubscribersMailingList/info", api.report.getSubscribersEmailMailingList);
 
 // Auth
 api_router.get("/auth-test", passport.authenticate('bearer', { session: false }), api.auth.authenticate);

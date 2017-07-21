@@ -31,3 +31,19 @@ exports.getActiveMemberEmailMailingList = function(req, res){
     });
 
 }
+exports.getSubscribersEmailMailingList = function(req, res){
+    var Member = mongoose.model("Member");
+    var mailingList = "";
+    // Member.find({
+    //   $and[
+    //     {newsletterConsent:true},
+    //     {status:{$ne:"BANNED"}}
+    //   ]}, "email")
+    Member.find({"newsletterConsent":true}).and({status:{$ne:"BANNED"}})
+    .exec().then(function(data){
+      for(index in data) {
+        mailingList += data[index]["email"] + ";";
+      }
+      res.send(mailingList);
+    })
+}
