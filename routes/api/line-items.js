@@ -29,7 +29,7 @@ exports.getAllLineItemsByOrderNumber = function(req, res){
 }
 function _getAllLineItems(){
     var LineItem = mongoose.model("LineItem");
-    return LineItem.find({}).exec();
+    return LineItem.find({}).populate("orderForLineItem").exec();
 }
 function _deleteAllLineItems(){
   var LineItem = mongoose.model("LineItem");
@@ -43,5 +43,9 @@ function _saveNewLineItem(data){
 }
 function _getAllLineItemsByOrderNumber(orderNumber) {
   var LineItem = mongoose.model("LineItem");
-  return LineItem.find({orderId: orderNumber}).exec();
+  return LineItem.find({}).populate({
+    path: "orderForLineItem",
+    match: {orderNumber: orderNumber},
+    select: 'orderNumber'
+  }).exec();
 }

@@ -33,8 +33,21 @@ var MemberSchema = new Schema({
     region: String,
     postalCode: String,
     country: String,
-    orderNumber: Number,
-    checkinStatus: {type: Boolean, default: false}
+    checkinStatus: {type: Boolean, default: false},
+    role: {
+      type: String,
+      enum:["MEMBER", "VOTING_MEMBER", "DIRECTOR"],
+      required: true,
+      default: "MEMBER"
+    }
+});
+MemberSchema.virtual("orderNumberForMember", {
+  ref: 'Order', // The model to use
+  localField: 'orderNumber', // Find people where `localField`
+  foreignField: 'ssOrderId', // is equal to `foreignField`
+  // If `justOne` is true, 'members' will be a single doc as opposed to
+  // an array. `justOne` is false by default.
+  justOne: true
 });
 MemberSchema.pre('save', function(next) {
     var document = this;

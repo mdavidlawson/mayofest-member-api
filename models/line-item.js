@@ -7,11 +7,11 @@ var Schema = mongoose.Schema,
 
 var LineItemSchema = new Schema({
     id: ObjectId,
-    orderId: {type: Number, required: true},
     item: String,
     qty: Number,
     price: SchemaTypes.Double,
     fufillmentStatus: String,
-    variation: String
+    variation: String,
+    orderForLineItem:[{type: Schema.Types.ObjectId, ref: "Order"}]
 });
 mongoose.model("LineItem", LineItemSchema);

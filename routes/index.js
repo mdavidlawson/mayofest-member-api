@@ -34,7 +34,7 @@ api_router.get("/member/operations/checkoutAllMembers", api.members.checkoutAllM
 api_router.get("/order", api.orders.getAllOrders);
 api_router.get("/order/orderNumber/:orderNumber", api.orders.findByOrderNumber);
 api_router.get("/orders", api.orders.getAllOrders);
-api_router.post("/order", api.orders.saveNewOrder);
+api_router.post("/order", api.orders.saveNewOrderLineItems);
 api_router.delete("/orders", api.orders.deleteAllOrders);
 api_router.put("/order/:id", api.orders.updateOrder);
 

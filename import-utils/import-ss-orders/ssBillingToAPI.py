@@ -3,8 +3,8 @@ import csv
 import json
 import requests
 import time
-orders = {}
-translated_line_items = []
+# Orders -> Line Items
+bodies = {}
 
 def main(orders_csv_path, api_path):
 
@@ -20,56 +20,38 @@ def main(orders_csv_path, api_path):
     if not line_items or len(line_items) <= 1:
         print("Empty order list, taking no action")
         exit(0)
-    global orders
-    global line_items
     for item in line_items:
         order = _translate_order(item)
-        _check_add_order(order)
         line_item = _translate_line_item(item)
-        translated_line_items.append(line_item)
+        if order["ssOrderId"] not in bodies:
+            print("{orderId} not in bodies... adding".format(orderId=order["ssOrderId"]))
+            bodies[order["ssOrderId"]] = {"order": order, "lineItems": []}
 
-    for translated_item in translated_line_items:
-        #time.sleep(.1)
-        order = orders[translated_item["orderId"]]
+        bodies[order["ssOrderId"]]["lineItems"].append(line_item)
+            # add line item to existing order
+    for body in bodies.values():
+        order = body["order"]
+
         found_order = requests.get("{p}/order/orderNumber/{ssId}".format(p=api_path,ssId=order["ssOrderId"])).json()
         if not found_order or found_order == "null":
-            result = requests.post(api_path+"/order", data=order)
+            print("About to post order: {o}".format(o=json.dumps(body, indent=2)))
+            result = requests.post(api_path+"/order", json=body)
             if result.status_code != 200:
                 print ("Failed to add order: {o} Reason: {r}".format(o=order["ssOrderId"], r=result.text))
                 continue
             else:
-                print ("Added new order: " + result.json()["_id"])
+                print ("Added new order + line items: " + json.dumps(result.json(), indent=2))
         else:
             print ("skipping already added order: {o}".format(o=order["ssOrderId"]))
-        result = requests.post(api_path+"/lineitem", data=translated_item)
-        if result.status_code != 200:
-            print ("Failed to add line item: {l} Order ID: {o} Reason: {r}"
-                .format(l=translated_item["item"],
-                o=translated_item["orderId"],
-                r=result.text))
-            continue
-        else:
-            print ("Added new line item: {l} for order: {o}".format(l=translated_item["item"], o=translated_item["orderId"]))
-
-
-def _check_add_order(order):
-    global orders
-    #print json.dumps(order, indent=2)
-    if order["ssOrderId"] in orders:
-        return
-    orders[order["ssOrderId"]] = order
-
 
 def _translate_order(item):
     return {
         "ssOrderId": int(item["Order ID"]),
-        "memberNumber": -1,
         "timestamp": item["Paid at"]
     }
 
 def _translate_line_item(item):
     return {
-        "orderId": int(item["Order ID"]),
         "item": item["Lineitem name"],
         "qty": item["Lineitem quantity"],
         "price": item["Lineitem price"],

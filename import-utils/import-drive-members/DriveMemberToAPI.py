@@ -54,7 +54,7 @@ def _translate_member(member):
         "region": member["Province/State/Region"],
         "postalCode": member["Postal/ZipCode"],
         "country": member["Country"],
-        "orderNumber": orderNumber
+        "orderNumberForMember": orderNumber
     }
 
 if __name__ == "__main__":

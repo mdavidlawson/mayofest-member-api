@@ -62,15 +62,15 @@ exports.checkoutAllMembers = function(req, res){
 // TODO potentially move into model functions?
 function _getAllMembers(){
   var Member = mongoose.model("Member");
-  return Member.find({}).exec();
+  return Member.find({}).populate("orderNumberForMember").exec();
 }
 function _searchMembersByCriteria(criteria){
   var Member = mongoose.model("Member");
-  return Member.find(criteria).exec();
+  return Member.find(criteria).populate("orderNumberForMember").exec();
 }
 function _getMemberByID(id){
   var Member = mongoose.model("Member");
-  return Member.findById(id).exec();
+  return Member.findById(id).populate("orderNumberForMember").exec();
 }
 function _getMemberByEmail(email){
   return _searchMembersByCriteria({"email":email});
@@ -85,7 +85,7 @@ function _deleteAllMembers(){
 }
 function _getMemberByNumber(memberNumber){
   var Member = mongoose.model("Member");
-  return Member.find({memberNumber: memberNumber}).exec();
+  return Member.find({memberNumber: memberNumber}).populate("orderNumberForMember").exec();
 }
 function _saveNewMember(data){
   console.log("Adding: ", data);
