@@ -59,3 +59,19 @@ exports.getBillingData = function(req, res) {
     res.json(data);
   });
 }
+exports.getOrphanedOrders = function(req, res) {
+  var Order = mongoose.model("Order");
+  return Order.find({memberNumber: -1}).populate("lineItemsForOrder")
+    .exec()
+    .then(function(data){
+      res.json(data);
+    });
+}
+exports.getLinkedOrders = function(req, res) {
+  var Order = mongoose.model("Order");
+  return Order.find({memberNumber: {$ne: -1}}).populate("lineItemsForOrder")
+    .exec()
+    .then(function(data){
+      res.json(data);
+    });
+}

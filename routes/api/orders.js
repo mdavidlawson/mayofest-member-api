@@ -32,6 +32,15 @@ exports.findByOrderNumber = function(req, res){
     res.status(500).send(error.message);
   })
 }
+exports.findByMemberNumber = function(req, res){
+  console.log("Finding by member number: " + req.params.memberNumber);
+  _getOrderByMemberNumber(req.params.memberNumber).then(function(result){
+    res.json(result);
+  }, function(error){
+    res.status(500).send(error.message);
+  })
+
+}
 exports.deleteAllOrders = function(req, res){
   _deleteAllOrders().then(function(result){
     res.json({"data": result});
@@ -61,6 +70,14 @@ function _getOrderByOrderNumber(orderNumber){
     .populate({
       path: "memberForOrder",
       select: "memberNumber memberNumber"
+    })
+    .exec();
+}
+function _getOrderByMemberNumber(memberNumber){
+  var Order = mongoose.model("Order");
+  return Order.findOne({"memberNumber": memberNumber})
+    .populate({
+      path: "lineItemsForOrder"
     })
     .exec();
 }

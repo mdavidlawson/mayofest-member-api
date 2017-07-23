@@ -10,6 +10,7 @@ var OrderSchema = new Schema({
     ssOrderId: {type: Number, required: true},
     timestamp: {type: Date, default: new Date()},
     memberNumber: Number,
+    billingName: String,
     lineItemsForOrder:[{type: Schema.Types.ObjectId, ref: "LineItem"}]
 
 },{ toJSON: { virtuals: true }, toObject: {virtuals: true} });

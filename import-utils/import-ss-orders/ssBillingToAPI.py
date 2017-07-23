@@ -48,7 +48,8 @@ def _translate_order(item):
     return {
         "ssOrderId": int(item["Order ID"]),
         "timestamp": item["Paid at"],
-        "memberNumber": -1
+        "memberNumber": -1,
+        "billingName": item["Billing Name"]
     }
 
 def _translate_line_item(item):

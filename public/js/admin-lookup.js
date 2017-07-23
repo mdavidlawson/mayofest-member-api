@@ -26,7 +26,8 @@ function _wrap_table(){
         _make_custom_button("Edit", doEdit),
         _make_custom_button("Remove", doRemove),
         _make_custom_button("View", doView),
-        _make_custom_button("Checkin Member", doCheckin)
+        _make_custom_button("Checkin Member", doCheckin),
+        _make_custom_button("View Billing Info", doViewBilling)
     ]
   });
 }
@@ -66,6 +67,62 @@ function doCheckin(e, dt, node, config){
     doReload();
   });
 
+}
+function doViewBilling(e, dt, node, config){
+  var selectedItem = _get_single_selected();
+  if (!selectedItem){
+    console.log("Will not edit, nothing selected.");
+    return;
+  }
+  var filterKeys = ["__v", "_id", "memberForOrder", "lineItemsForOrder", "memberNumber"];
+  var lineItemFilterKeys = ["__v", "_id", "orderForLineItem", "price", "fufillmentStatus"];
+  $("#billing-info-header").text("LLS Member: " + selectedItem.memberNumber + " Billing Information");
+  var $container = $("#billing-info");
+  $container.empty();
+  $.getJSON(window.location.origin + "/api/order/memberNumber/"+selectedItem.memberNumber, function(billingInfo){
+    if (!billingInfo){
+      console.log("billing info missing");
+      return;
+    }
+    $container.append("<h3>Order "+billingInfo["ssOrderId"]+" Info</h3>");
+    for (var dataKey in billingInfo){
+      if (filterKeys.includes(dataKey)) continue;
+
+      var $label = $("<label class='control-label'></label>");
+      $label.text(dataKey);
+
+      var $component = $("<p class='form-control-static'></p>");
+      $component.text(String(billingInfo[dataKey]));
+
+      var $formGroup = $("<div class='form-group'></div>");
+      $formGroup.append($label).append($component);
+      $container.append($formGroup);
+    }
+    if (!billingInfo["lineItemsForOrder"]){
+      return;
+    }
+    for (var lineItemInfoIndex in billingInfo["lineItemsForOrder"]){
+      var lineItemInfo = billingInfo["lineItemsForOrder"][lineItemInfoIndex];
+      var adjustedLineItemIndex = Number(lineItemInfoIndex) + 1;
+      $container.append("<h4>Line Item #"+adjustedLineItemIndex+"</h4>");
+      for (dataKey in lineItemInfo){
+        if (filterKeys.includes(dataKey)) continue;
+
+        var $label = $("<label class='control-label'></label>");
+        $label.text(dataKey);
+
+        var $component = $("<p class='form-control-static'></p>");
+        $component.text(String(lineItemInfo[dataKey]));
+
+        var $formGroup = $("<div class='form-group'></div>");
+        $formGroup.append($label).append($component);
+        $container.append($formGroup);
+      }
+    }
+  });
+  $("#view-billing-info").modal({
+    view: true
+  });
 }
 function doAdd(e, dt, node, config){
   $("#membership-intake")[0].reset();

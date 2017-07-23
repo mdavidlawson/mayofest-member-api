@@ -64,7 +64,7 @@ function _getAllMembers(){
   var Member = mongoose.model("Member");
   return Member.find({}).populate({
     path: "orderNumberForMember",
-    select: "orderNumber ssOrderId"
+    select: "orderNumber ssOrderId "
   }).exec();
 }
 function _searchMembersByCriteria(criteria){
@@ -111,6 +111,7 @@ function _updateMember(id, data){
   return Member.findOneAndUpdate({_id:id}, data);
 }
 function _bulkCheckoutMembers(){
-  var Member = mongoose.model("Member");
-  return Member.find({checkinStatus:"true"}).update({$set: {checkinStatus: false}}).exec();
+  var Member = mongoose.model("Member").collection.initializeOrderedBulkOp();
+  Member.find({}).update({$set: {checkinStatus: false}});
+  return Member.execute();
 }

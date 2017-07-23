@@ -33,6 +33,7 @@ api_router.get("/member/operations/checkoutAllMembers", api.members.checkoutAllM
 // Orders
 api_router.get("/order", api.orders.getAllOrders);
 api_router.get("/order/orderNumber/:orderNumber", api.orders.findByOrderNumber);
+api_router.get("/order/memberNumber/:memberNumber", api.orders.findByMemberNumber);
 api_router.get("/orders", api.orders.getAllOrders);
 api_router.post("/order", api.orders.saveNewOrderLineItems);
 api_router.delete("/orders", api.orders.deleteAllOrders);
@@ -52,6 +53,8 @@ api_router.get("/report/activeMemberEmail/info", api.report.getActiveMemberEmail
 api_router.get("/report/getActiveMemberEmailMailingList/info", api.report.getActiveMemberEmailMailingList);
 api_router.get("/report/getSubscribersMailingList/info", api.report.getSubscribersEmailMailingList);
 api_router.get("/report/getBillingData/info", api.report.getBillingData);
+api_router.get("/report/getOrphanedOrders/info", api.report.getOrphanedOrders);
+api_router.get("/report/getLinkedOrders/info", api.report.getLinkedOrders);
 
 // Auth
 api_router.get("/auth-test", passport.authenticate('bearer', { session: false }), api.auth.authenticate);
