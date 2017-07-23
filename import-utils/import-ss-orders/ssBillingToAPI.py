@@ -47,7 +47,8 @@ def main(orders_csv_path, api_path):
 def _translate_order(item):
     return {
         "ssOrderId": int(item["Order ID"]),
-        "timestamp": item["Paid at"]
+        "timestamp": item["Paid at"],
+        "memberNumber": -1
     }
 
 def _translate_line_item(item):

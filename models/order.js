@@ -9,9 +9,10 @@ var OrderSchema = new Schema({
     id: ObjectId,
     ssOrderId: {type: Number, required: true},
     timestamp: {type: Date, default: new Date()},
+    memberNumber: Number,
     lineItemsForOrder:[{type: Schema.Types.ObjectId, ref: "LineItem"}]
 
-});
+},{ toJSON: { virtuals: true } });
 OrderSchema.virtual("memberForOrder", {
   ref: 'Member', // The model to use
   localField: 'memberNumber', // Find people where `localField`

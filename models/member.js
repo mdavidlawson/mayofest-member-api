@@ -39,8 +39,9 @@ var MemberSchema = new Schema({
       enum:["MEMBER", "VOTING_MEMBER", "DIRECTOR"],
       required: true,
       default: "MEMBER"
-    }
-});
+    },
+    orderNumber: Number
+},{ toJSON: { virtuals: true } });
 MemberSchema.virtual("orderNumberForMember", {
   ref: 'Order', // The model to use
   localField: 'orderNumber', // Find people where `localField`

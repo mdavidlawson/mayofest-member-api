@@ -7,6 +7,7 @@ exports.getAllOrders = function(req, res){
     res.json({data: data});
   });
 }
+
 exports.saveNewOrder = function(req, res){
     console.log("Form values: " + JSON.stringify(req.body));
   _saveNewOrder(req.body).then(function(result){
@@ -37,20 +38,26 @@ exports.deleteAllOrders = function(req, res){
   })
 }
 exports.updateOrder = function(req, res){
+  console.log("Updating order " + req.params.id + " -> " + JSON.stringify(req.body))
   _updateOrder(req.params.id, req.body).then(function(result){
     res.json(result);
+  }, function(error){
+    res.status(200).send(error.message);
   });
 }
 function _getAllOrders(){
     var Order = mongoose.model("Order");
     return Order.find({})
       .populate("lineItemsForOrder")
-      .populate("memberForOrder")
+      .populate({path: "memberForOrder", select: "memberNumber memberNumber"})
       .exec();
 }
 function _getOrderByOrderNumber(orderNumber){
   var Order = mongoose.model("Order");
   return Order.findOne({"ssOrderId": orderNumber})
+    .populate("lineItemsForOrder")
+    .populate({path: "memberForOrder", select: "memberNumber memberNumber"})
+    .exec()
 }
 // function _saveNewOrder(order){
 //   console.log("Adding: ", order);
@@ -83,5 +90,7 @@ function _deleteAllOrders(){
 function _updateOrder(id, data){
   console.log("Updating ID: ", id);
   var Order = mongoose.model("Order");
-  return Order.findOneAndUpdate({_id:id}, data);
+  return new Promise(function(resolve, reject){
+    Order.findOneAndUpdate({_id:id}, data).then(resolve, reject);
+  });
 }

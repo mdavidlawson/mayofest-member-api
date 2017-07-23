@@ -62,15 +62,24 @@ exports.checkoutAllMembers = function(req, res){
 // TODO potentially move into model functions?
 function _getAllMembers(){
   var Member = mongoose.model("Member");
-  return Member.find({}).populate("orderNumberForMember").exec();
+  return Member.find({}).populate({
+    path: "orderNumberForMember",
+    select: "orderNumber ssOrderId"
+  }).exec();
 }
 function _searchMembersByCriteria(criteria){
   var Member = mongoose.model("Member");
-  return Member.find(criteria).populate("orderNumberForMember").exec();
+  return Member.find(criteria).populate({
+    path: "orderNumberForMember",
+    select: "orderNumber ssOrderId"
+  }).exec();
 }
 function _getMemberByID(id){
   var Member = mongoose.model("Member");
-  return Member.findById(id).populate("orderNumberForMember").exec();
+  return Member.findById(id).populate({
+    path: "orderNumberForMember",
+    select: "orderNumber ssOrderId"
+  }).exec();
 }
 function _getMemberByEmail(email){
   return _searchMembersByCriteria({"email":email});
@@ -85,7 +94,10 @@ function _deleteAllMembers(){
 }
 function _getMemberByNumber(memberNumber){
   var Member = mongoose.model("Member");
-  return Member.find({memberNumber: memberNumber}).populate("orderNumberForMember").exec();
+  return Member.find({memberNumber: memberNumber}).populate({
+    path: "orderNumberForMember",
+    select: "orderNumber ssOrderId"
+  }).exec();
 }
 function _saveNewMember(data){
   console.log("Adding: ", data);
