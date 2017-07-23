@@ -55,9 +55,14 @@ function _getAllOrders(){
 function _getOrderByOrderNumber(orderNumber){
   var Order = mongoose.model("Order");
   return Order.findOne({"ssOrderId": orderNumber})
-    .populate("lineItemsForOrder")
-    .populate({path: "memberForOrder", select: "memberNumber memberNumber"})
-    .exec()
+    .populate({
+      path: "lineItemsForOrder"
+    })
+    .populate({
+      path: "memberForOrder",
+      select: "memberNumber memberNumber"
+    })
+    .exec();
 }
 // function _saveNewOrder(order){
 //   console.log("Adding: ", order);

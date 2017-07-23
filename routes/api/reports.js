@@ -47,3 +47,15 @@ exports.getSubscribersEmailMailingList = function(req, res){
       res.send(mailingList);
     })
 }
+exports.getBillingData = function(req, res) {
+  var Member = mongoose.model("Member");
+  return Member.find({}).populate({
+    path: "orderNumberForMember",
+    select: "orderNumber ssOrderId lineItemsForOrder",
+    populate: {
+      path: "lineItemsForOrder"
+    }
+  }).exec().then(function(data){
+    res.json(data);
+  });
+}

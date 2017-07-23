@@ -41,7 +41,7 @@ var MemberSchema = new Schema({
       default: "MEMBER"
     },
     orderNumber: Number
-},{ toJSON: { virtuals: true } });
+},{ toJSON: { virtuals: true }, toObject: {virtuals: true}  });
 MemberSchema.virtual("orderNumberForMember", {
   ref: 'Order', // The model to use
   localField: 'orderNumber', // Find people where `localField`

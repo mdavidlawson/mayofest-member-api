@@ -13,5 +13,5 @@ var LineItemSchema = new Schema({
     fufillmentStatus: String,
     variation: String,
     orderForLineItem:[{type: Schema.Types.ObjectId, ref: "Order"}]
-},{ toJSON: { virtuals: true } });
+});
 mongoose.model("LineItem", LineItemSchema);

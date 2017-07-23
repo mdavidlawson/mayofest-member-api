@@ -12,7 +12,7 @@ var OrderSchema = new Schema({
     memberNumber: Number,
     lineItemsForOrder:[{type: Schema.Types.ObjectId, ref: "LineItem"}]
 
-},{ toJSON: { virtuals: true } });
+},{ toJSON: { virtuals: true }, toObject: {virtuals: true} });
 OrderSchema.virtual("memberForOrder", {
   ref: 'Member', // The model to use
   localField: 'memberNumber', // Find people where `localField`
