@@ -62,6 +62,9 @@ function doCheckin(e, dt, node, config){
     url: window.location.origin + "/api/member/"+selectedItem._id,
     data: selectedItem,
     type: 'put'
+  }).fail(function(err){
+    alert("There was an error updating this record. " + err.message);
+    return;
   }).done(function(){
     console.log("Updated");
     doReload();
@@ -119,6 +122,8 @@ function doViewBilling(e, dt, node, config){
         $container.append($formGroup);
       }
     }
+  }).fail(function(error){
+    alert("Cannot get billing information: " + error.message);
   });
   $("#view-billing-info").modal({
     view: true
@@ -146,10 +151,12 @@ function doRemove(e, dt, node, config){
       keyboard: false
     })
     .one('click', '#delete-member', function(e) {
-
       $.ajax({
         url: window.location.origin + "/api/member/"+selectedItem._id,
         type: 'DELETE'
+      }).fail(function(error){
+        alert("Failed to delete member! " + error.message);
+        return;
       }).done(function(){
         console.log("Deleted");
         doReload();
@@ -183,7 +190,10 @@ function doEdit(e, dt, node, config){
         console.log("Updating");
         onEdit(selectedItem._id);
       });
-    })
+    }).fail(function(error){
+      alert("Failed to get member! " + error.message);
+      return;
+    });
 
 }
 function doView(e, dt, node, config){
@@ -215,15 +225,26 @@ function doView(e, dt, node, config){
   });
 }
 function onAdd(){
-  $.post(window.location.origin + "/api/member", $("#membership-intake").serialize())
-    .done(function() {
-      console.log("Success");
-      doReload();
-    })
-    .fail(function() {
-      console.log( "error" );
-    }).always(function(){
-      console.log( "done" );
+  var serializedForm = $("#membership-intake").serialize();
+  $.getJSON("/api/member/email/"+ $("#email-input").val(), function(data){
+    if (data && data.data && data.data.length > 0 && data.data[0]) {
+      var member = data.data[0];
+      if (member.status === "BANNED") {
+        alert("The email entered is flagged - please contact Tuckshop Section Leader / directors");
+      } else {
+        alert("Member email already in the system, please update record instead");
+      }
+      return;
+    }
+    $.post(window.location.origin + "/api/member", serializedForm)
+      .done(function() {
+        console.log("Success");
+        doReload();
+      }).fail(function(error) {
+        alert("Failed to add member: " + error.message)
+      }).always(function(){
+        console.log( "done" );
+      });
     });
 }
 function onEdit(id){
@@ -233,6 +254,8 @@ function onEdit(id){
       url: window.location.origin + "/api/member/"+id,
       data: formData,
       type: 'put'
+    }).fail(function(error){
+      alert("Failed to edit member: " + error.message);
     }).done(function(){
       console.log("Updated");
       doReload();

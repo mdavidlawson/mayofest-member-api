@@ -6,19 +6,34 @@ $(document).ready(function(){
   $("#save-member").click(function(e){
     console.log("in submission");
     e.preventDefault();
-    $.post("/api/member", $("#kiosk-form").serialize())
-      .done(function(data){
-        _onSuccessfulSave(data.memberNumber);
-      })
-      .fail(function(err){
-        _onFailure(err);
-      })
-      .always(function(){
-        console.log("done")
-        location.reload(true);
-        window.location = window.location.pathname;
-      })
-  })
+    var serializedForm = $("#kiosk-form").serialize();
+    $.getJSON("/api/member/email/"+ $("#email-input").val(), function(data){
+      if (data && data.data && data.data.length > 0 && data.data[0]) {
+        var member = data.data[0];
+        if (member.status === "BANNED") {
+          alert("There was an issue processing your information, please provide your information to the tuckshop.");
+        } else {
+          alert("You've already given us your info!");
+        }
+        return;
+      }
+      $.post("/api/member", serializedForm)
+        .done(function(data){
+          _onSuccessfulSave(data.memberNumber);
+        })
+        .fail(function(err){
+          _onFailure(err);
+        })
+        .always(function(){
+          console.log("done")
+          location.reload(true);
+          window.location = window.location.pathname;
+        });
+      }).fail(function(error){
+        alert("Cannot get member by email: " + error.message);
+      });
+    });
+
 })
 
 function _onSuccessfulSave(memberNumber){
