@@ -6,7 +6,8 @@ SUPPORTED_PRODUCTS = [
     "Annual LLS Membership (needed for all events)"
 ]
 SUPPORTED_VARIATIONS = [
-    "I'm not a member"
+    "I'm not a member",
+    "I don't have a membership"
 ]
 
 def main(api_path):

@@ -28,7 +28,11 @@ function _wrap_table(){
         _make_custom_button("View", doView),
         _make_custom_button("Checkin Member", doCheckin),
         _make_custom_button("View Billing Info", doViewBilling)
-    ]
+    ],rowCallback: function(row, data, index) {
+    if (data[3] == 'BANNED') {
+      $(row).find('td:eq(3)').addClass('banned-member');
+    }
+  }
   });
 }
 function _make_custom_button(text, handler){
