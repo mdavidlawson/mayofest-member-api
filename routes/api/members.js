@@ -58,6 +58,14 @@ exports.checkoutAllMembers = function(req, res){
     res.status(500).send(error.message);
   })
 }
+exports.deactivateAllMembers = function(req, res){
+  console.log("Deactivating All Members");
+  _bulkSetMemberStatus("INACTIVE").then(function(result){
+    res.json(result);
+  }, function(error){
+    res.status(500).send(error.message);
+  })
+}
 // internal functions
 // TODO potentially move into model functions?
 function _getAllMembers(){
@@ -113,5 +121,10 @@ function _updateMember(id, data){
 function _bulkCheckoutMembers(){
   var Member = mongoose.model("Member").collection.initializeOrderedBulkOp();
   Member.find({}).update({$set: {checkinStatus: false}});
+  return Member.execute();
+}
+function _bulkSetMemberStatus(newStatus){
+  var Member = mongoose.model("Member").collection.initializeOrderedBulkOp();
+  Member.find({}).update({$set: {status: newStatus}});
   return Member.execute();
 }
