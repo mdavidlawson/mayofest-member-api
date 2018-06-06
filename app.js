@@ -11,7 +11,6 @@ const models = join(__dirname, 'models');
 var app = express();
 var routers = require("./routes");
 
-
 // import counter schema first
 require("./routes/util/counter-schema");
 
@@ -23,12 +22,11 @@ fs.readdirSync(models)
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.set('views', __dirname + '/views');
 app.engine('hbs', exphbs({
   defaultLayout: 'main',
   extname: '.hbs',
-  partialsDir: __dirname+"/views/partials",
-  layoutsDir: __dirname+"/views/layouts"
+  partialsDir: "views/partials",
+  layoutsDir: "views/layouts"
 }));
 app.set('view engine', 'hbs');
 
@@ -36,7 +34,7 @@ var port = process.env.PORT || 8080;
 
 app.use("/", routers.view)
 app.use("/api", routers.api);
-app.use(express.static(__dirname+'/public/'));
+app.use(express.static('public/'));
 mongoose.connect("mongodb://localhost/mayofest-member-db");
 mongoose.connection
   .on("error", console.log)
