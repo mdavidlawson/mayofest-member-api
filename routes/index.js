@@ -29,6 +29,7 @@ api_router.delete("/members", api.members.deleteAllMembers);
 api_router.post("/member", api.members.saveNewMember);
 api_router.put("/member/:id", api.members.updateMember);
 api_router.get("/member/operations/checkoutAllMembers", api.members.checkoutAllMembers);
+api_router.get("/member/operations/deactivateAllMembers", api.members.deactivateAllMembers);
 
 // Orders
 api_router.get("/order", api.orders.getAllOrders);
